@@ -1,40 +1,45 @@
 <div class="col-md-6 offset-md-3">
     <div class="card">
         <div class="card-header">
-            <h1>Tasks</h1>
+            <h1>Contactos</h1>
         </div>
         <div class="card-body">
             {{#if contacts}}
             <ul class="list-group">
                 {{#each contacts}}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{firstname}}
-                    {{lastname}} / 
-                    {{email}}
+                   Nombre: {{nombre}}-
+                   Asunto: {{asunto}} / 
+                   Email: {{email}} /
+                   Telefono: {{telefono}} /
+                   Mensaje: {{mensaje}} /
                     <a href="/delete-contact/{{@key}}" class="btn btn-danger">Delete</a>
                 </li>
                 {{/each}}
             </ul>
             {{else}}
-                <p>No Contacts Yet.</p>
+                <p>Sin contactos.</p>
             {{/if}}
         </div>
         <div class="card-footer">
             <form action="/new-contact" method="POST">
                 <div class="form-group">
-                    <input type="text" name="firstname" placeholder="Firstname" class="form-control" autofocus>
+                    <input type="text" name="nombre" placeholder="Nombre" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="lastname" placeholder="Lastname" class="form-control">
+                    <input type="text" name="asunto" placeholder="Asunto" class="form-control">
                 </div>
                 <div class="form-group">
                     <input type="email" name="email" placeholder="email" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Phone" class="form-control">
+                    <input type="tel" name="telefono" placeholder="Telefono" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="mensaje" placeholder="mensaje" class="form-control">
                 </div>
                 <button class="btn btn-primary btn-block">
-                    Add
+                    Enviar
                 </button>
             </form>
         </div>

@@ -1,0 +1,55 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>Siniestros</h1>
+        </div>
+        <div class="card-body">
+            {{#if siniestros}}
+            <ul class="list-group">
+                {{#each siniestros}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{afectado}}
+                    {{nombre}} / 
+                    {{email}} /
+                    {{telefono}} /
+                    {{mensaje}} /
+                    {{compania}} /
+                    {{patente}} /
+                    <a href="/delete-siniestros/{{@key}}" class="btn btn-danger">Delete</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+                <p>No Contacts Yet.</p>
+            {{/if}}
+        </div>
+        <div class="card-footer">
+            <form action="/new-siniestro" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="nombre" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="afectado" placeholder="afectado" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="patente" placeholder="patente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="telefono" placeholder="telefono" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="mensaje" placeholder="mensaje" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="compania" placeholder="compañia" class="form-control">
+                </div>
+                <button class="btn btn-primary btn-block">
+                    Enviar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
