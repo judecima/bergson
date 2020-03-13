@@ -5,6 +5,11 @@ const morgan = require('morgan');
 
 const app = express();
 
+//Securization APP TLS
+var cors = require('cors')
+
+app.use(cors())
+
 // Settings
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
