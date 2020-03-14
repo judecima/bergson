@@ -3,6 +3,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
 
+
+
 const app = express();
 
 // Settings
@@ -17,7 +19,7 @@ app.set('view engine', '.hbs');
 // middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
-
+app.use(express.json());
 // Routes
 app.use(require('./routes/index'));
 

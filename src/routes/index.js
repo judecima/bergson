@@ -29,6 +29,14 @@ router.get('/siniestros', (req, res) => {
 })
 
 router.post('/new-contact', async(req, res) => {
+     res.set('Access-Control-Allow-Origin', '*');
+        if (req.method === 'OPTIONS') {
+            // Send response to OPTIONS requests
+            res.set('Access-Control-Allow-Methods', 'GET');
+            res.set('Access-Control-Allow-Headers', 'Content-Type');
+            res.set('Access-Control-Max-Age', '3600');
+            res.status(204).send('');
+          } else {
     const newContact = {
         nombre: req.body.nombre,
         email: req.body.email,
@@ -75,8 +83,9 @@ router.post('/new-contact', async(req, res) => {
     // Preview only available when sending through an Ethereal account
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-
-    res.redirect('/success.html');
+    res.send('inserto')
+    // res.redirect('/success.html');
+    }
 });
 
 
