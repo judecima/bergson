@@ -1,5 +1,6 @@
 const admin = require('firebase-admin')
 const nodemailer = require('nodemailer');
+const cors = require('cors')({origin: true});
 // var serviceAccount = require(process.env.GOOGLE_APPLICATIONS_CREDENTIALS);
 
 var serviceAccount = require("../../bergson-c7518-firebase-adminsdk-b2zly-36b99e3b9c.json");
@@ -29,6 +30,9 @@ router.get('/siniestros', (req, res) => {
 })
 
 router.post('/new-contact', async(req, res) => {
+
+    
+
      res.set('Access-Control-Allow-Origin', '*');
         if (req.method === 'OPTIONS') {
             // Send response to OPTIONS requests
@@ -86,6 +90,7 @@ router.post('/new-contact', async(req, res) => {
     res.send('inserto')
     // res.redirect('/success.html');
     }
+
 });
 
 
