@@ -155,6 +155,188 @@ router.post('/new-siniestro', async(req, res) => {
     // res.redirect('/siniestros');
 });
 
+
+router.post('/new-contrato', async(req, res) => {
+    const newContrato = {
+        
+        tipo: req.body.tipo,
+        cuota: req.body.cuota,
+        pago: req.body.pago,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.email,
+        telefono: req.body.telefono,
+        contacto: req.body.contacto
+    }
+    db.ref('contrato').push(newContrato);
+
+    contentHTML = `
+        <h1>User Information</h1>
+        <ul>
+            <li>Afectado: ${newContrato.nombre}</li>
+            <li>Nombre: ${newContrato.apellido}</li>
+            <li>Email: ${newContrato.email}</li>
+            <li>Telefono: ${newContrato.contacto}</li>
+            <li>Telefono: ${newContrato.telefono}</li>
+            
+            
+        </ul>
+        
+    `;
+
+    let transporter = nodemailer.createTransport({
+        host: 'c1560800.ferozo.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'hola@bergson.com.ar',
+            pass: 'Santiago1312'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    let info = await transporter.sendMail({
+        from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
+        to: 'juliodecima@gmail.com',
+        subject: 'Formulario de Asesoramiento',
+        // text: 'Hello World'
+        html: contentHTML
+    })
+
+    console.log('Message sent: %s', info.messageId);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+    res.redirect('/success.html');
+
+
+    // res.redirect('/siniestros');
+});
+
+
+
+
+router.post('/new-asesoria', async(req, res) => {
+    const newAsesora = {
+        
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.email,
+        telefono: req.body.telefono,
+        contacto: req.body.contacto
+    }
+    db.ref('asesora').push(newAsesora);
+
+    contentHTML = `
+        <h1>User Information</h1>
+        <ul>
+            <li>Afectado: ${newAsesora.nombre}</li>
+            <li>Nombre: ${newAsesora.apellido}</li>
+            <li>Email: ${newAsesora.email}</li>
+            <li>Telefono: ${newAsesora.contacto}</li>
+            <li>Telefono: ${newAsesora.telefono}</li>
+            
+            
+        </ul>
+        
+    `;
+
+    let transporter = nodemailer.createTransport({
+        host: 'c1560800.ferozo.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'hola@bergson.com.ar',
+            pass: 'Santiago1312'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    let info = await transporter.sendMail({
+        from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
+        to: 'juliodecima@gmail.com',
+        subject: 'Formulario de Asesoramiento',
+        // text: 'Hello World'
+        html: contentHTML
+    })
+
+    console.log('Message sent: %s', info.messageId);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+    res.redirect('/success.html');
+
+
+    // res.redirect('/siniestros');
+});
+
+
+
+router.post('/new-cotiza', async(req, res) => {
+    const newCotizaPre = {
+        
+        modelo: req.body.modelo,
+        version: req.body.version,
+        ano: req.body.ano,
+        marca: req.body.marca,
+        gnc: req.body.gnc,
+        cp: req.body.cp,
+        
+    }
+
+    
+
+    db.ref('cotizaPrev').push(newCotizaPre);
+    console.log('a ver'+newCotizaPre)
+    contentHTML = `
+        <h1>Informacion de Cotizacion previa</h1>
+        <ul>
+            <li>Afectado: ${newCotizaPre.marca}</li>
+            <li>Nombre: ${newCotizaPre.modelo}</li>
+            <li>Email: ${newCotizaPre.ano}</li>
+            <li>Telefono de contacto: ${newCotizaPre.version}</li>
+            <li>Patente: ${newCotizaPre.gnc}</li>
+            <li>Compañia: ${newCotizaPre.cp}</li>
+        </ul>
+        
+    `;
+
+
+    let transporter = nodemailer.createTransport({
+        host: 'c1560800.ferozo.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'hola@bergson.com.ar',
+            pass: 'Santiago1312'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    let info = await transporter.sendMail({
+        from: '"Bergson" <hola@bergson.com.ar>', // sender address,
+        to: 'juliodecima@gmail.com',
+        subject: 'Formulario de Cotizacion previa',
+        // text: 'Hello World'
+        html: contentHTML
+    })
+
+
+   
+});
+
 router.get('/delete-contact/:id', (req, res) => {
     db.ref('contacts/' + req.params.id).remove();
     res.redirect('/');
