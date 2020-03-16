@@ -46,7 +46,8 @@ router.post('/new-contact', async(req, res) => {
         email: req.body.email,
         asunto: req.body.asunto,
         telefono: req.body.telefono,
-        mensaje: req.body.mensaje
+        mensaje: req.body.mensaje,
+        dia: new Date().toISOString()
     }
     db.ref('contacts').push(newContact);
     contentHTML = `
@@ -56,6 +57,7 @@ router.post('/new-contact', async(req, res) => {
             <li>Nombre: ${newContact.nombre}</li>
             <li>Email: ${newContact.email}</li>
             <li>Telefono: ${newContact.telefono}</li>
+            <li>Fecha de consulta: ${newContact.dia}</li>
         </ul>
         <p>${newContact.mensaje}</p>
     `;
@@ -95,6 +97,15 @@ router.post('/new-contact', async(req, res) => {
 
 
 router.post('/new-siniestro', async(req, res) => {
+    if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Methods', 'GET');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+      } else {
+    
+    
     const newSiniestro = {
         
         afectado: req.body.afectado,
@@ -103,7 +114,8 @@ router.post('/new-siniestro', async(req, res) => {
         patente: req.body.patente,
         telefono: req.body.telefono,
         compania: req.body.compania,
-        mensaje: req.body.mensaje
+        mensaje: req.body.mensaje,
+        dia: new Date().toString()
     }
     db.ref('siniestros').push(newSiniestro);
 
@@ -113,9 +125,10 @@ router.post('/new-siniestro', async(req, res) => {
             <li>Afectado: ${newSiniestro.afectado}</li>
             <li>Nombre: ${newSiniestro.nombre}</li>
             <li>Email: ${newSiniestro.email}</li>
-            <li>Telefono: ${newSiniestro.patente}</li>
+            <li>Patente: ${newSiniestro.patente}</li>
             <li>Telefono: ${newSiniestro.telefono}</li>
-            <li>Telefono: ${newSiniestro.compania}</li>
+            <li>Compañia: ${newSiniestro.compania}</li>
+            <li>Fecha de consulta: ${newSiniestro.dia}</li>
             
         </ul>
         <p>${newSiniestro.mensaje}</p>
@@ -149,14 +162,23 @@ router.post('/new-siniestro', async(req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-    res.redirect('/success.html');
+    res.send('inserto')
 
-
-    // res.redirect('/siniestros');
+      }
+    
 });
 
 
 router.post('/new-contrato', async(req, res) => {
+    
+    if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Methods', 'GET');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+      } else {
+    
     const newContrato = {
         
         tipo: req.body.tipo,
@@ -166,18 +188,21 @@ router.post('/new-contrato', async(req, res) => {
         apellido: req.body.apellido,
         email: req.body.email,
         telefono: req.body.telefono,
-        contacto: req.body.contacto
+        contacto: req.body.contacto,
+        dia: req.body.dia
     }
     db.ref('contrato').push(newContrato);
 
     contentHTML = `
         <h1>User Information</h1>
         <ul>
-            <li>Afectado: ${newContrato.nombre}</li>
-            <li>Nombre: ${newContrato.apellido}</li>
+            <li>Tipo: ${newContrato.tipo}</li>
+            <li>Nombre: ${newContrato.nombre}</li>
+            <li>Apellido: ${newContrato.apellido}</li>
             <li>Email: ${newContrato.email}</li>
-            <li>Telefono: ${newContrato.contacto}</li>
+            <li>Forma de contacto: ${newContrato.contacto}</li>
             <li>Telefono: ${newContrato.telefono}</li>
+            <li>Fecha de contratacion: ${newContrato.dia}</li>
             
             
         </ul>
@@ -212,9 +237,9 @@ router.post('/new-contrato', async(req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-    res.redirect('/success.html');
+    res.send('inserto')
 
-
+}
     // res.redirect('/siniestros');
 });
 
@@ -222,13 +247,22 @@ router.post('/new-contrato', async(req, res) => {
 
 
 router.post('/new-asesoria', async(req, res) => {
+    
+    if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Methods', 'GET');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+      } else {
     const newAsesora = {
         
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         email: req.body.email,
         telefono: req.body.telefono,
-        contacto: req.body.contacto
+        contacto: req.body.contacto,
+        dia: new Date().toString
     }
     db.ref('asesora').push(newAsesora);
 
@@ -238,7 +272,7 @@ router.post('/new-asesoria', async(req, res) => {
             <li>Afectado: ${newAsesora.nombre}</li>
             <li>Nombre: ${newAsesora.apellido}</li>
             <li>Email: ${newAsesora.email}</li>
-            <li>Telefono: ${newAsesora.contacto}</li>
+            <li>Forma de contacto: ${newAsesora.contacto}</li>
             <li>Telefono: ${newAsesora.telefono}</li>
             
             
@@ -274,15 +308,24 @@ router.post('/new-asesoria', async(req, res) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-    res.redirect('/success.html');
+    res.send('inserto')
 
-
+      }
     // res.redirect('/siniestros');
 });
 
 
 
 router.post('/new-cotiza', async(req, res) => {
+    
+    if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Methods', 'GET');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+      } else {
+    
     const newCotizaPre = {
         
         modelo: req.body.modelo,
@@ -291,13 +334,14 @@ router.post('/new-cotiza', async(req, res) => {
         marca: req.body.marca,
         gnc: req.body.gnc,
         cp: req.body.cp,
+        dia:new Date().toString()
         
     }
 
     
 
     db.ref('cotizaPrev').push(newCotizaPre);
-    console.log('a ver'+newCotizaPre)
+    
     contentHTML = `
         <h1>Informacion de Cotizacion previa</h1>
         <ul>
@@ -307,6 +351,7 @@ router.post('/new-cotiza', async(req, res) => {
             <li>Telefono de contacto: ${newCotizaPre.version}</li>
             <li>Patente: ${newCotizaPre.gnc}</li>
             <li>Compañia: ${newCotizaPre.cp}</li>
+            <li>Fecha de consulta: ${newCotizaPre.dia}</li>
         </ul>
         
     `;
@@ -333,7 +378,7 @@ router.post('/new-cotiza', async(req, res) => {
         html: contentHTML
     })
 
-
+      }
    
 });
 
