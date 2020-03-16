@@ -35,5 +35,5 @@ app.use(require('./routes/index'));
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
-
+// prueba
 module.exports = app;
