@@ -97,10 +97,6 @@ router.post('/new-contact', async(req, res) => {
 
 
 router.post('/new-siniestro', async(req, res) => {
-<<<<<<< HEAD
-console.log("request body: "+req.body.email)
-
-=======
     if (req.method === 'OPTIONS') {
         // Send response to OPTIONS requests
         res.set('Access-Control-Allow-Methods', 'GET');
@@ -109,8 +105,6 @@ console.log("request body: "+req.body.email)
         res.status(204).send('');
       } else {
     
-    
->>>>>>> 1958785b9d46c2b46207dddcc4368f691e2e1d4a
     const newSiniestro = {
         
         afectado: req.body.afectado,
