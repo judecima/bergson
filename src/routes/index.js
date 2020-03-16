@@ -81,6 +81,8 @@ router.post('/new-contact', async(req, res) => {
 
 
 router.post('/new-siniestro', async(req, res) => {
+console.log("request body: "+req.body.email)
+
     const newSiniestro = {
         
         afectado: req.body.afectado,
@@ -91,6 +93,7 @@ router.post('/new-siniestro', async(req, res) => {
         compania: req.body.compania,
         mensaje: req.body.mensaje
     }
+	console.log("New Siniestro: "+newSiniestro)
     db.ref('siniestros').push(newSiniestro);
 
     contentHTML = `
