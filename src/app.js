@@ -28,8 +28,14 @@ app.set('view engine', '.hbs');
 
 // middlewares
 app.use(morgan('dev'));
+<<<<<<< HEAD
+//app.use(express.urlencoded({extended: false}));
+app.use(express.json())
+
+=======
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+>>>>>>> 1958785b9d46c2b46207dddcc4368f691e2e1d4a
 // Routes
 app.use(require('./routes/index'));
 
