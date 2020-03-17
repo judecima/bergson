@@ -77,7 +77,7 @@ router.post('/new-contact', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'hola@bergson.com.ar',
         subject: 'Formulario de contactos',
         // text: 'Hello World'
         html: contentHTML
@@ -149,7 +149,7 @@ router.post('/new-siniestro', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'siniestros@bergson.com.ar',
         subject: 'Formulario de siniestros',
         // text: 'Hello World'
         html: contentHTML
@@ -224,7 +224,7 @@ router.post('/new-contrato', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'ventas@bergson.com.ar',
         subject: 'Formulario de Asesoramiento',
         // text: 'Hello World'
         html: contentHTML
@@ -269,8 +269,8 @@ router.post('/new-asesoria', async(req, res) => {
     contentHTML = `
         <h1>User Information</h1>
         <ul>
-            <li>Afectado: ${newAsesora.nombre}</li>
-            <li>Nombre: ${newAsesora.apellido}</li>
+            <li>Nombre: ${newAsesora.nombre}</li>
+            <li>Apellido: ${newAsesora.apellido}</li>
             <li>Email: ${newAsesora.email}</li>
             <li>Forma de contacto: ${newAsesora.contacto}</li>
             <li>Telefono: ${newAsesora.telefono}</li>
@@ -295,7 +295,7 @@ router.post('/new-asesoria', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'ventas@bergson.com.ar',
         subject: 'Formulario de Asesoramiento',
         // text: 'Hello World'
         html: contentHTML
@@ -372,7 +372,7 @@ router.post('/new-cotiza', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'ventas@bergson.com.ar',
         subject: 'Formulario de Cotizacion previa',
         // text: 'Hello World'
         html: contentHTML
