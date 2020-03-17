@@ -3,7 +3,23 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+const  https  =  require ( 'https' ) ;
+// const  fs  =  require ( 'fs' ) ;
+
+var fs = require('fs'); 
+
+var options = { 
+    key: fs.readFileSync(path.join(__dirname, 'certs/server-key.pem')), 
+    cert: fs.readFileSync(path.join(__dirname, 'certs/server-cert.pem')), 
+    
+    requestCert: true, 
+    rejectUnauthorized: true
+};
+https.createServer(options, function (req, res) { 
+    res.writeHead(200); 
+    res.end("hello world\n"); 
+}).listen(443);
 
 
 //Securization APP TLS
