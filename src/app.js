@@ -10,10 +10,10 @@ const  https  =  require ( 'https' ) ;
 var fs = require('fs'); 
 
 
-https.createServer(options, function (req, res) { 
-    res.writeHead(200); 
-    res.end("hello world\n"); 
-}).listen(443);
+// https.createServer(options, function (req, res) { 
+//     res.writeHead(200); 
+//     res.end("hello world\n"); 
+// }).listen(443);
 
 
 //Securization APP TLS
@@ -29,6 +29,13 @@ app.use((req, res, next) => {
 });
 // Settings
 app.set('port', process.env.PORT || 3000);
+// var port = process.env.PORT || 3000;
+
+//     var server = app.listen(port, function () {
+//         console.log('Server running at http://127.0.0.1:' + port + '/');
+//     });
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
