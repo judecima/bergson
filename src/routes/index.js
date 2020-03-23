@@ -77,7 +77,7 @@ router.post('/new-contact', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'hola@bergson.com.ar',
+        to: 'juliodecima@gmail.com',
         subject: 'Formulario de contactos',
         // text: 'Hello World'
         html: contentHTML
