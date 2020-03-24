@@ -190,7 +190,7 @@ router.post('/new-contrato', async(req, res) => {
         email: req.body.email,
         telefono: req.body.telefono,
         contacto: req.body.contacto,
-        dia: req.body.dia
+        dia: new Date().toString()
     }
     db.ref('contrato').push(newContrato);
 
@@ -263,7 +263,7 @@ router.post('/new-asesoria', async(req, res) => {
         email: req.body.email,
         telefono: req.body.telefono,
         contacto: req.body.contacto,
-        dia: new Date().toString
+        dia: new Date().toString()
     }
     db.ref('asesora').push(newAsesora);
 
@@ -275,6 +275,7 @@ router.post('/new-asesoria', async(req, res) => {
             <li>Email: ${newAsesora.email}</li>
             <li>Forma de contacto: ${newAsesora.contacto}</li>
             <li>Telefono: ${newAsesora.telefono}</li>
+            <li>Fecha consulta: ${newAsesora.dia}</li>
             
             
         </ul>
@@ -287,7 +288,7 @@ router.post('/new-asesoria', async(req, res) => {
         secure: true,
         auth: {
             user: 'jdecima@bergson.com.ar',
-            pass: 'Jdecima1312'
+            pass: 'Julio1312'
         },
         tls: {
             rejectUnauthorized: false
@@ -346,12 +347,12 @@ router.post('/new-cotiza', async(req, res) => {
     contentHTML = `
         <h1>Informacion de Cotizacion previa</h1>
         <ul>
-            <li>Afectado: ${newCotizaPre.marca}</li>
-            <li>Nombre: ${newCotizaPre.modelo}</li>
-            <li>Email: ${newCotizaPre.ano}</li>
-            <li>Telefono de contacto: ${newCotizaPre.version}</li>
-            <li>Patente: ${newCotizaPre.gnc}</li>
-            <li>Compañia: ${newCotizaPre.cp}</li>
+            <li>Marca: ${newCotizaPre.marca}</li>
+            <li>Modelo: ${newCotizaPre.modelo}</li>
+            <li>Version: ${newCotizaPre.version}</li>
+            <li>Año: ${newCotizaPre.ano}</li>
+            <li>Posee Gnc: ${newCotizaPre.gnc}</li>
+            <li>Codigo Postal: ${newCotizaPre.cp}</li>
             <li>Fecha de consulta: ${newCotizaPre.dia}</li>
         </ul>
         
