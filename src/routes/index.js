@@ -67,8 +67,8 @@ router.post('/new-contact', async(req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'hola@bergson.com.ar',
-            pass: 'Santiago1312'
+            user: 'jdecima@bergson.com.ar',
+            pass: 'Julio1312'
         },
         tls: {
             rejectUnauthorized: false
@@ -140,8 +140,8 @@ router.post('/new-siniestro', async(req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'hola@bergson.com.ar',
-            pass: 'Santiago1312'
+            user: 'jdecima@bergson.com.ar',
+            pass: 'Julio1312'
         },
         tls: {
             rejectUnauthorized: false
@@ -215,8 +215,8 @@ router.post('/new-contrato', async(req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'hola@bergson.com.ar',
-            pass: 'Santiago1312'
+            user: 'jdecima@bergson.com.ar',
+            pass: 'Julio1312'
         },
         tls: {
             rejectUnauthorized: false
@@ -286,8 +286,8 @@ router.post('/new-asesoria', async(req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'hola@bergson.com.ar',
-            pass: 'Santiago1312'
+            user: 'jdecima@bergson.com.ar',
+            pass: 'Jdecima1312'
         },
         tls: {
             rejectUnauthorized: false
@@ -363,8 +363,8 @@ router.post('/new-cotiza', async(req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'hola@bergson.com.ar',
-            pass: 'Santiago1312'
+            user: 'Jdecima@bergson.com.ar',
+            pass: 'Julio1312'
         },
         tls: {
             rejectUnauthorized: false
