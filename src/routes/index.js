@@ -77,7 +77,7 @@ router.post('/new-contact', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'hola@bergson.com.ar',
         subject: 'Formulario de contactos',
         // text: 'Hello World'
         html: contentHTML
@@ -121,7 +121,7 @@ router.post('/new-siniestro', async(req, res) => {
     db.ref('siniestros').push(newSiniestro);
 
     contentHTML = `
-        <h1>User Information</h1>
+        <h1>Información de siniestro</h1>
         <ul>
             <li>Afectado: ${newSiniestro.afectado}</li>
             <li>Nombre: ${newSiniestro.nombre}</li>
@@ -150,7 +150,7 @@ router.post('/new-siniestro', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'siniestros@bergson.com.ar',
         subject: 'Formulario de siniestros',
         // text: 'Hello World'
         html: contentHTML
@@ -195,9 +195,11 @@ router.post('/new-contrato', async(req, res) => {
     db.ref('contrato').push(newContrato);
 
     contentHTML = `
-        <h1>User Information</h1>
+        <h1>Solicitud de poliza</h1>
         <ul>
             <li>Tipo: ${newContrato.tipo}</li>
+            <li>Nombre: ${newContrato.cuota}</li>
+            <li>Nombre: ${newContrato.pago}</li>
             <li>Nombre: ${newContrato.nombre}</li>
             <li>Apellido: ${newContrato.apellido}</li>
             <li>Email: ${newContrato.email}</li>
@@ -225,8 +227,8 @@ router.post('/new-contrato', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
-        subject: 'Formulario de Asesoramiento',
+        to: 'ventas@bergson.com.ar',
+        subject: 'Formulario de Solicitud de Poliza',
         // text: 'Hello World'
         html: contentHTML
     })
@@ -268,7 +270,7 @@ router.post('/new-asesoria', async(req, res) => {
     db.ref('asesora').push(newAsesora);
 
     contentHTML = `
-        <h1>User Information</h1>
+        <h1>Pedido de asesoramiento</h1>
         <ul>
             <li>Nombre: ${newAsesora.nombre}</li>
             <li>Apellido: ${newAsesora.apellido}</li>
@@ -297,7 +299,7 @@ router.post('/new-asesoria', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'ventas@bergson.com.ar',
         subject: 'Formulario de Asesoramiento',
         // text: 'Hello World'
         html: contentHTML
@@ -346,6 +348,7 @@ router.post('/new-cotiza', async(req, res) => {
     
     contentHTML = `
         <h1>Informacion de Cotizacion previa</h1>
+        <h3>Todo cliente que haya iniciado el formulario</h3>
         <ul>
             <li>Marca: ${newCotizaPre.marca}</li>
             <li>Modelo: ${newCotizaPre.modelo}</li>
@@ -374,7 +377,7 @@ router.post('/new-cotiza', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson" <hola@bergson.com.ar>', // sender address,
-        to: 'juliodecima@gmail.com',
+        to: 'ventas@bergson.com.ar',
         subject: 'Formulario de Cotizacion previa',
         // text: 'Hello World'
         html: contentHTML
