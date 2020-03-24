@@ -181,7 +181,9 @@ router.post('/new-contrato', async(req, res) => {
       } else {
     
     const newContrato = {
-        
+        empresa:req.body.empresa,
+        oferta:req.body.oferta,
+        asegura: req.body.asegurado,
         tipo: req.body.tipo,
         cuota: req.body.cuota,
         pago: req.body.pago,
@@ -197,9 +199,12 @@ router.post('/new-contrato', async(req, res) => {
     contentHTML = `
         <h1>Solicitud de poliza</h1>
         <ul>
+            <li>Empresa: ${newContrato.empresa}</li>
+            <li>Oferta: ${newContrato.oferta}</li>
+            <li>Asegura: ${newContrato.asegura}</li>
             <li>Tipo: ${newContrato.tipo}</li>
-            <li>Nombre: ${newContrato.cuota}</li>
-            <li>Nombre: ${newContrato.pago}</li>
+            <li>Precio de cuota:$ ${newContrato.cuota}</li>
+            <li>Forma de pago: ${newContrato.pago}</li>
             <li>Nombre: ${newContrato.nombre}</li>
             <li>Apellido: ${newContrato.apellido}</li>
             <li>Email: ${newContrato.email}</li>
@@ -259,7 +264,12 @@ router.post('/new-asesoria', async(req, res) => {
         res.status(204).send('');
       } else {
     const newAsesora = {
-        
+
+        empresa:req.body.empresa,
+        oferta:req.body.oferta,
+        asegura: req.body.asegurado,
+        tipo: req.body.tipo,
+        cuota: req.body.cuota,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         email: req.body.email,
@@ -272,6 +282,12 @@ router.post('/new-asesoria', async(req, res) => {
     contentHTML = `
         <h1>Pedido de asesoramiento</h1>
         <ul>
+
+            <li>Empresa: ${newAsesora.empresa}</li>
+            <li>Oferta: ${newAsesora.oferta}</li>
+            <li>Asegura: ${newAsesora.asegura}</li>
+            <li>Tipo: ${newAsesora.tipo}</li>
+            <li>Precio de cuota:$ ${newAsesora.cuota}</li>           
             <li>Nombre: ${newAsesora.nombre}</li>
             <li>Apellido: ${newAsesora.apellido}</li>
             <li>Email: ${newAsesora.email}</li>
