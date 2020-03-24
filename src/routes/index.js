@@ -150,7 +150,7 @@ router.post('/new-siniestro', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'siniestros@bergson.com.ar',
+        to: 'juliodecima@gmail.com',
         subject: 'Formulario de siniestros',
         // text: 'Hello World'
         html: contentHTML
@@ -225,7 +225,7 @@ router.post('/new-contrato', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'ventas@bergson.com.ar',
+        to: 'juliodecima@gmail.com',
         subject: 'Formulario de Asesoramiento',
         // text: 'Hello World'
         html: contentHTML
@@ -296,7 +296,7 @@ router.post('/new-asesoria', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'ventas@bergson.com.ar',
+        to: 'juliodecima@gmail.com',
         subject: 'Formulario de Asesoramiento',
         // text: 'Hello World'
         html: contentHTML
@@ -373,7 +373,7 @@ router.post('/new-cotiza', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson" <hola@bergson.com.ar>', // sender address,
-        to: 'ventas@bergson.com.ar',
+        to: 'juliodecima@gmail.com',
         subject: 'Formulario de Cotizacion previa',
         // text: 'Hello World'
         html: contentHTML
