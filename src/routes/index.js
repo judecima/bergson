@@ -192,6 +192,8 @@ router.post('/new-contrato', async(req, res) => {
         email: req.body.email,
         telefono: req.body.telefono,
         contacto: req.body.contacto,
+        gnc: req.body.gnc,
+        nuevo: req.body.nuevo,
         dia: new Date().toString()
     }
     db.ref('contrato').push(newContrato);
@@ -210,6 +212,8 @@ router.post('/new-contrato', async(req, res) => {
             <li>Email: ${newContrato.email}</li>
             <li>Forma de contacto: ${newContrato.contacto}</li>
             <li>Telefono: ${newContrato.telefono}</li>
+            <li>Posee GNC: ${newContrato.gnc}</li>
+            <li>Es nuevo: ${newContrato.nuevo}</li>
             <li>Fecha de contratacion: ${newContrato.dia}</li>
             
             
@@ -275,6 +279,8 @@ router.post('/new-asesoria', async(req, res) => {
         email: req.body.email,
         telefono: req.body.telefono,
         contacto: req.body.contacto,
+        gnc: req.body.gnc,
+        nuevo: req.body.nuevo,
         dia: new Date().toString()
     }
     db.ref('asesora').push(newAsesora);
@@ -293,6 +299,8 @@ router.post('/new-asesoria', async(req, res) => {
             <li>Email: ${newAsesora.email}</li>
             <li>Forma de contacto: ${newAsesora.contacto}</li>
             <li>Telefono: ${newAsesora.telefono}</li>
+            <li>Posee GNC: ${newAsesora.gnc}</li>
+            <li>Es nuevo: ${newAsesora.nuevo}</li>
             <li>Fecha consulta: ${newAsesora.dia}</li>
             
             
@@ -353,6 +361,7 @@ router.post('/new-cotiza', async(req, res) => {
         ano: req.body.ano,
         marca: req.body.marca,
         gnc: req.body.gnc,
+        nuevo: req.body.nuevo,
         cp: req.body.cp,
         dia:new Date().toString()
         
@@ -371,6 +380,7 @@ router.post('/new-cotiza', async(req, res) => {
             <li>Version: ${newCotizaPre.version}</li>
             <li>Año: ${newCotizaPre.ano}</li>
             <li>Posee Gnc: ${newCotizaPre.gnc}</li>
+            <li>Es Nuevo: ${newCotizaPre.nuevo}</li>
             <li>Codigo Postal: ${newCotizaPre.cp}</li>
             <li>Fecha de consulta: ${newCotizaPre.dia}</li>
         </ul>
