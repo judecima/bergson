@@ -238,7 +238,7 @@ router.post('/new-contrato', async(req, res) => {
 
     let info = await transporter.sendMail({
         from: '"Bergson Seguros" <hola@bergson.com.ar>', // sender address,
-        to: 'ventas@@bergson.com.ar',
+        to: 'ventas@bergson.com.ar',
         subject: 'Formulario de Solicitud de Poliza',
         // text: 'Hello World'
         html: contentHTML
